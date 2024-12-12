@@ -5,7 +5,13 @@ const ResultsList = () => {
     const { state } = useContext(GlobalContext);
 
     const getFlagUrl = (languageCode) =>
-        `https://flagcdn.com/w40/${languageCode.toLowerCase() === 'en' ? 'us' : languageCode.toLowerCase()}.png`;    
+        `https://flagcdn.com/w40/${languageCode.toLowerCase() === 'en' ? 'us' : languageCode.toLowerCase()}.png`;
+    
+    const getPosterUrl = (posterPath) => {
+        return posterPath
+          ? `https://image.tmdb.org/t/p/w342${posterPath}`
+          : "https://via.placeholder.com/342x513?text=No+Image";
+      };
     
 
         if (state.loading) return <p>Caricamento in corso...</p>;
@@ -16,6 +22,11 @@ const ResultsList = () => {
             <ul>
                 {state.results.map((result) => (
                     <li key={result.id}>
+                        <img
+                             src={getPosterUrl(result.poster_path)}
+                             alt={result.title || result.name}
+                             style={{ width: "150px", height: "225px" }}
+                        />
                         <p><strong>Titolo:</strong> {result.title || result.name}</p>
                         <p><strong>Titolo Originale:</strong> {result.original_title || result.original_name}</p>
                         <p>
