@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import GlobalContext from './contexts/GlobalContext'
+import GlobalStateProvider from './components/GlobalStateProvider'
+import SearchBar from './components/SearchBar'
 
 function App() {
  
   return (
-      <GlobalContext.Provider>
-      </GlobalContext.Provider>
+      <GlobalStateProvider>
+        <SearchBar></SearchBar>
+      </GlobalStateProvider>
   )
 }
 
