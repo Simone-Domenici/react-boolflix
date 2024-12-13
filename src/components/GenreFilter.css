@@ -1,0 +1,51 @@
+.genre-filter {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .genre-filter-button {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .genre-filter-button:hover {
+    background-color: #f40612;
+  }
+  
+  .genre-accordion {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    top: 40px;
+    left: 0;
+    background-color: #1f1f1f;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 100;
+    margin-left: 20px;
+  }
+  
+  .genre-item {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .apply-filters-button {
+    margin-top: 10px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .apply-filters-button:hover {
+    background-color: #f40612;
+  }
+  

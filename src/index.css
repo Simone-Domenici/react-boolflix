@@ -59,3 +59,7 @@ header button:hover {
   color: lightslategray;
 }
 
+.search-wrapper{
+  display: flex;
+  align-items: center;
+}
