@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar }  from '@fortawesome/free-solid-svg-icons';
 
-const Card = ({ title, originalTitle, language, vote, overview, posterPath,  }) => {
+const Card = ({ title, originalTitle, language, vote, overview, posterPath, genres , cast , tagline}) => {
   const getPosterUrl = (posterPath) => {
     return posterPath
       ? `https://image.tmdb.org/t/p/w342${posterPath}`
@@ -51,7 +51,9 @@ const Card = ({ title, originalTitle, language, vote, overview, posterPath,  }) 
         <p className="card-vote">
           <strong>Voto:</strong> {renderStars(vote)}
         </p>
-        <p className="card-overview">{overview || "No description available"}</p>
+        <p className="card-genres"><strong>Generi:</strong> {genres.join(", ")}</p>
+        <p className="card-cast"><strong>Cast:</strong> {cast.join(", ")}</p>
+        <p className="card-overview">{tagline || "No description available"}</p>
       </div>
     </div>
   );

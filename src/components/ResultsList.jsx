@@ -12,18 +12,20 @@ const ResultsList = () => {
 
     return (
         <div className="results-container">
-      {state.results.map((result) => (
-        <Card
-          key={result.id}
-          title={result.title || result.name}
-          originalTitle={result.original_title || result.original_name}
-          language={result.original_language}
-          vote={result.vote_average}
-          overview={result.overview}
-          posterPath={result.poster_path}
-        />
-      ))}
-    </div>
+            {state.results.map((result) => (
+                <Card
+                    key={result.id}
+                    title={result.title || result.name}
+                    originalTitle={result.original_title || result.original_name}
+                    language={result.original_language}
+                    vote={result.vote_average}
+                    tagline={result.details.tagline || result.overview} 
+                    posterPath={result.poster_path}
+                    genres={result.details.genres.map((genre) => genre.name)}
+                    cast={result.details.credits.cast.slice(0, 5).map((actor) => actor.name)}
+                />
+            ))}
+        </div>
     );
 };
 

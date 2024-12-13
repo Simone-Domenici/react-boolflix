@@ -32,7 +32,26 @@ const SearchBar = () => {
                 ...moviesResponse.data.results,
                 ...tvResponse.data.results,
             ];
-            fetchSuccess(mergedResults);
+
+            const detailedResults = await Promise.all(
+                mergedResults.map(async (item) => {
+                    const type = item.title ? "movie" : "tv";
+                    const detailsResponse = await axios.get(
+                        `https://api.themoviedb.org/3/${type}/${item.id}`,
+                        {
+                            params: {
+                                api_key: '2a932018bf9b9741f9754017875f411b',
+                                language: 'it-IT',
+                                append_to_response: 'credits',
+                            },
+                        }
+                    );
+                    return { ...item, details: detailsResponse.data };
+                })
+            );
+            fetchSuccess(detailedResults);
+            console.log(detailedResults);
+            
         } catch (error) {
             fetchError('Errore nella chiamata API');
         }

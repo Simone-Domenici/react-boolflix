@@ -68,3 +68,17 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.card-genres {
+    font-size: 12px;
+    color: #cccccc;
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .card-cast {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 5px 0;
+    text-align: center;
+  }
